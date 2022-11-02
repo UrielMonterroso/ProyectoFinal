@@ -1,0 +1,53 @@
+{% extends 'carga.html'%}
+
+{%block tutulo%}
+      <h1>Productos</h1>
+{% endblock %}
+
+{% block redes %}
+    <p class="u-text u-text-2"><b><center>Estetica canina "RHEMA" Recuerda que si no puedes o no quieres salir nosotros vamos por tu peludo.</p></b></center>
+{% endblock %} 
+
+{% block nav %}
+<div class="menu-collapse" style="font-size: 1rem; letter-spacing: 0px;">
+    <a class="u-button-style u-custom-left-right-menu-spacing u-custom-padding-bottom u-custom-top-bottom-menu-spacing u-nav-link u-text-active-palette-1-base u-text-hover-palette-2-base" href="#">
+      <svg class="u-svg-link" viewBox="0 0 24 24"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#menu-hamburger"></use></svg>
+      <svg class="u-svg-content" version="1.1" id="menu-hamburger" viewBox="0 0 16 16" x="0px" y="0px" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg"><g><rect y="1" width="16" height="2"></rect><rect y="7" width="16" height="2"></rect><rect y="13" width="16" height="2"></rect>
+</g></svg>
+    </a>
+  </div>
+  <div class="u-nav-container">
+    <ul class="u-nav u-unstyled u-nav-1"><li class="u-nav-item"><a class="u-button-style u-nav-link u-text-active-palette-1-base u-text-hover-palette-2-base" href="{% url 'home:servapp'%}" style="padding: 10px 20px;">Servicios</a>
+    </li><li class="u-nav-item"><a class="u-button-style u-nav-link u-text-active-palette-1-base u-text-hover-palette-2-base" href="{% url 'home:citasapp'%}" style="padding: 10px 20px;">Citas</a>
+          </li><li class="u-nav-item"><a class="u-button-style u-nav-link u-text-active-palette-1-base u-text-hover-palette-2-base" href="{% url 'home:clienteapp'%}" style="padding: 10px 20px;">Datos de cliente</a>
+          </li><li class="u-nav-item"><a class="u-button-style u-nav-link" href="{% url 'home:listadoproductos'%}"> LISTADO DE PRODUCTOS</a>
+</li></ul>
+  </div>
+  <div class="u-nav-container-collapse">
+    <div class="u-black u-container-style u-inner-container-layout u-opacity u-opacity-95 u-sidenav">
+      <div class="u-inner-container-layout u-sidenav-overflow">
+        <div class="u-menu-close"></div>
+        <ul class="u-align-center u-nav u-popupmenu-items u-unstyled u-nav-2"><li class="u-nav-item"><a class="u-button-style u-nav-link" href="{% url 'home:servapp'%}">Servicios</a>
+        </li><li class="u-nav-item"><a class="u-button-style u-nav-link" href="{% url 'home:citasapp'%}">Citas</a>
+          </li><li class="u-nav-item"><a class="u-button-style u-nav-link" href="{% url 'home:clienteapp'%}">Datos de Cliente</a>
+</li></ul>
+      </div>
+    </div>
+    <div class="u-black u-menu-overlay u-opacity u-opacity-70"></div>
+  </div>
+{% endblock %}
+
+{%block producto%}
+<div align = "center">
+<section class="form-register">
+    <h2 style="color:#351f6e"><b>DATOS DE PRODUCTO</b></h2>
+    <form method="post">
+      {% csrf_token %}
+      <h4>Nombre de Producto</h4> {{form.nombreP}}
+      <h4>Fecha de Ingreso</h4> {{form.fechaI}}
+      <h4>Cantidad</h4> {{form.cantidad}}
+      <input class="u-btn u-btn-rectangle u-button-style u-hover-palette-2-base u-palette-3-base u-text-grey-5 u-btn-3" type="submit" name="guardar">
+  </form></div>
+
+  </section>
+{% endblock %}

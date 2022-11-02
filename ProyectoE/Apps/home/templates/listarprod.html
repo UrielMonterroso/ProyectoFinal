@@ -1,0 +1,58 @@
+{% extends 'carga.html'%}
+
+{% block titulo %}
+<title>Listado de Mascota</title>
+{% endblock %}
+
+{% block redes %}
+    <p class="u-text u-text-2"><b><center>Estetica canina "RHEMA" Recuerda que si no puedes o no quieres salir nosotros vamos por tu peludo.</p></b></center>
+{% endblock %}
+
+{% block contenido %}
+
+<a href={% url 'home:prodapp' %} class="w-100 btn btn-lg btn-dark"><b>REGRESAR</b></a>
+<div>
+    <br>
+<form action="" method="get">
+    <div class="container-4">
+      <input type="text" name="nombreP" placeholder="Buscar Producto..." />
+      <button class="icon"><i class="fa fa-search">Buscar</button>
+    </div>
+  </form>
+  <br>
+</div>
+<FONT COLOR = "white">
+<br><table border="1" align="center" bordercolor="blue" cellpacing="0">
+    <caption><center><b><FONT COLOR = "success">LISTADO DE PRODUCTOS</caption></center></b></FONT>
+       <center><tr valign="abajo" align="centro">
+        <td height="50" width="400" bgcolor="navy"><center><b>Nombre </td>
+        <th height="50" width="500" bgcolor="navy" ><center><b>Fecha</td>
+        <th width="200" bgcolor="navy" ><center><b>Cantidad</th>
+            <th width="20" bgcolor="navy" ><center><b>Acción </th>
+                <th width="500" bgcolor="navy" ><center><b>Detalle</th>
+        </center></tr></b>
+    {% for est in object_list %}
+    <tr>
+        <td> <center><FONT COLOR = "Maroon">
+            {{ est.nombreP }} <center>
+        </td>
+        <td> <center><FONT COLOR = "Purple">
+            {{ est.fechaI }}<center>
+        </td>
+        <td> <center><FONT COLOR = "Navy">
+            {{ est.cantidad }}<center>
+        </td>
+        <td><style>
+            .btb{background-color:rgb(54, 54, 188);color:rgb(224, 226, 218);width:100px; 
+                font-family: 'gabriola', sans-serif; FONT-SIZE: 14pt;}
+            </style>
+            <br><center><a href="{% url 'home:editarprod' est.id %}">
+            <button class="bt2 btb"><b>Editar</button></b>
+            </center></a> </td>
+            <td><br><a href="{% url 'home:detalleprod' est.id %}">
+                <button class="bt2 btb"><b>VER</button></b>
+                </a>
+    </tr>
+    {% endfor %} 
+</table></FONT></center>
+{% endblock %}

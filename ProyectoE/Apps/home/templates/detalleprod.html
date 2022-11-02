@@ -1,0 +1,16 @@
+{% extends 'carga.html'%}
+
+{% block titulo %}
+<title>DETALLES DE PRODUCTOS</title>
+{% endblock %}
+
+{% block contenido %}
+
+<a href={% url 'home:listadoproductos' %} class="w-100 btn btn-lg btn-dark"><b>REGRESAR</b></a>
+<br><br>           
+<CENTER><caption><b><FONT COLOR = "blue">DETALLE DE PRODUCTOS</caption></b></FONT><br><br>
+<p><b><font color = "Red">NOMBRE:</font> {{ object.nombreP }}</p>
+<p><b><font color = "Red">FECHA:</font> {{ object.fechaI }}</p>    
+<p><b><font color = "Red">CANTIDAD:</font> {{ object.cantidad }}</p>  
+</CENTER>
+{% endblock %}
