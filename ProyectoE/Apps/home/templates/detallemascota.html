@@ -1,0 +1,18 @@
+{% extends 'carga.html'%}
+
+{% block titulo %}
+<title>DETALLES DE MASCOTA</title>
+{% endblock %}
+
+{% block contenido %}
+
+<a href={% url 'home:listadomascota' %} class="w-100 btn btn-lg btn-dark"><b>REGRESAR</b></a>
+<br><br>           
+<CENTER><caption><b><FONT COLOR = "blue">DETALLE DE MASCOTA</caption></b></FONT><br><br>
+    <p><b><font color = "Red">NOMBRE:</font> {{ object.nombreM }}</p>
+    <p><b><font color = "Red">RAZA:</font> {{ object.raza }}</p>    
+    <p><b><font color = "Red">EDAD:</font> {{ object.edad }}</p>
+    <p><b><font color = "Red">CLIENTE/DUEÑO:</font> {{ object.Cliente }}</p>  
+
+</CENTER>
+{% endblock %}

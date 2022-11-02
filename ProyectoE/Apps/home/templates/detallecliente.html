@@ -1,0 +1,16 @@
+{% extends 'carga.html'%}
+
+{% block titulo %}
+<title>DETALLES DE CLIENTE</title>
+{% endblock %}
+
+{% block contenido %}
+
+<a href={% url 'home:listadocliente' %} class="w-100 btn btn-lg btn-dark"><b>REGRESAR</b></a>
+<br><br>           
+<CENTER><caption><b><FONT COLOR = "blue">DETALLE DE CLIENTE</caption></b></FONT><br><br>
+<p><b><font color = "Red">NOMBRE:</font> {{ object.nombre }}</p>
+<p><b><font color = "Red">APELLIDO:</font> {{ object.apellido }}</p>    
+<p><b><font color = "Red">TELEFONO:</font> {{ object.telefono }}</p>  
+</CENTER>
+{% endblock %}

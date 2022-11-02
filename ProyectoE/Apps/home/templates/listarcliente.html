@@ -1,0 +1,60 @@
+{% extends 'carga.html'%}
+
+{% block titulo %}
+<title>Listado de Cliente</title>
+{% endblock %}
+
+{% block redes %} 
+    <p class="u-text u-text-2"><b><center>Estetica canina "RHEMA" Recuerda que si no puedes o no quieres salir nosotros vamos por tu peludo.</p></b></center>
+{% endblock %}
+
+{% block contenido %}
+<a href={% url 'home:clienteapp' %} class="w-100 btn btn-lg btn-dark"><b>REGRESAR</b></a>
+<div>
+    <br>
+<form action="" method="get">
+    <div class="container-4">
+      <input type="text" name="nombre" placeholder="Buscar Cliente..." />
+      <button class="icon"><i class="fa fa-search">Buscar</button>
+    </div>
+  </form>
+  <br>
+</div>
+<FONT COLOR = "white">
+<table border="1" align="center" bordercolor="blue" cellpacing="0">
+    <caption><center><b><FONT COLOR = "primary">LISTADO DE CLIENTE</caption></center></b></FONT>
+       <center><tr valign="abajo" align="centro">
+        <td height="50" width="500" bgcolor="navy"><center><b>Nombre </td>
+        <th height="50" width="500" bgcolor="navy" ><center><b>Apellido</td>
+        <th width="300" bgcolor="navy" ><center><b>Telefono</th>
+        <th width="500" bgcolor="navy" ><center><b>Acción </th>
+        <th width="500" bgcolor="navy" ><center><b>Detalle</th>
+        </center></tr></b>
+    {% for est in object_list %}
+    <tr>
+        <td> <center><FONT COLOR = "blue">
+            {{ est.nombre }} <center>
+        </td>
+        <td> <center><FONT COLOR = "09591F">
+            {{ est.apellido }}<center>
+        </td>
+        <td> <center><FONT COLOR = "6F2339">
+            {{ est.telefono }}<center>
+        </td>
+        <td><style>
+            .btb{background-color:rgb(54, 54, 188);color:rgb(224, 226, 218);width:100px; 
+                font-family: 'gabriola', sans-serif; FONT-SIZE: 14pt;}
+            </style>
+            <br><center><a href="{% url 'home:editarcliente' est.id %}">
+            <button class="bt2 btb"><b>Editar</button></b>
+            </center></a> </td>
+            <td><br><a href="{% url 'home:detallecliente' est.id %}">
+                <button class="bt2 btb"><b>VER</button></b>
+                </a>
+    </tr>
+    {% endfor %}
+</table></FONT></center>
+
+<BR>
+<a href={% url 'home:listadomascota' %} class="w-100 btn btn-lg btn-dark"><b>LISTADO DE MASCOTAS</b></a>
+{% endblock %}
